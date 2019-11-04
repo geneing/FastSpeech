@@ -21,7 +21,7 @@ def load_wav_to_torch(full_path):
 def get_mel(filename):
     audio, sampling_rate = load_wav_to_torch(filename)
     if sampling_rate != _stft.sampling_rate:
-        raise ValueError("{} {} SR doesn't match target {} SR".format(
+        raise ValueError("{} {} SR doesn't match target {} SR".format(filename, 
             sampling_rate, _stft.sampling_rate))
     audio_norm = audio / hparams.max_wav_value
     audio_norm = audio_norm.unsqueeze(0)
